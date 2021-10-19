@@ -1,26 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 
-<form method="get" action="AddColisServlet">
-	<p> Enregistrement d'un colis</p>
-	<p> Poids : <input name="temp"  type="text"> </p>
-	<p> Valeur : <input name="temp"  type="text"> </p>
-	<p> Origine : <input name="temp"  type="text"> </p>
-	<p> Destination : <input name="temp"  type="text"> </p>
-	<p> Emplacement de dÃ©part : <input name="temp"  type="text"> </p>
-	<p> Latitude : <input name="temp"  type="text"> </p>
-	<p> Longitude : <input name="temp"  type="text"> </p>
-	<p> Etat : <input name="temp"  type="text"> </p>
-	<p> <input type="submit" name="valider"  value="OK"> </p>
-		
-	  </form>
-
+ 	<form method="get" action="MainServlet">
+		<button type="submit">Créer colis</button>
+		<button type="submit">Suivre colis</button>
+	</form>
 </body>
 </html>
