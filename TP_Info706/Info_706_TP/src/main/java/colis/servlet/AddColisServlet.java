@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import colis.ejb.ColisEjb;
 import colis.jpa.Colis;
+import colis.jpa.Etat;
 
 /**
  * Servlet implementation class AddColisServlet
@@ -36,14 +37,20 @@ public class AddColisServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// recuperation et parsing des parametres de la requete
-		//String piece = request.getParameter("piece");
-		//double temp = Double.parseDouble(request.getParameter("temp"));
+		double poids = Double.parseDouble(request.getParameter("poids"));
+		double valeur = Double.parseDouble(request.getParameter("valeur"));
+		String origine = request.getParameter("origine");
+		String destination = request.getParameter("destination");
+		double latitude = Double.parseDouble(request.getParameter("latitude"));
+		double longitude = Double.parseDouble(request.getParameter("longitude"));
+		String emplacement = request.getParameter("emplacement");
+		Etat etat = Etat.ENREGISTREMENT;
 		// appel de la methode d'ajout sur l'ejb
-		//Colis m = ejb.addColis(piece, temp);		
+		Colis c = ejb.addColis(poids,valeur,origine,destination,latitude,longitude,emplacement,etat);		
 		// ajout de la Colis dans la requete
-		//request.setAttribute("Colis",m);
+		request.setAttribute("colis",c);
 		// transfert a la JSP d'affichage
-		request.getRequestDispatcher("/showColis.jsp").forward(request, response);
+		request.getRequestDispatcher("/ajoutColis.jsp").forward(request, response);
 	}
 
 	/**

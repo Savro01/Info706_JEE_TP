@@ -1,5 +1,7 @@
 package colis.ejb;
 
+import java.util.List;
+
 import colis.jpa.Colis;
 import colis.jpa.Etat;
 
@@ -7,5 +9,7 @@ public interface ColisEjbInt {
 
 	public Colis addColis(double poids, double valeur, String origine, String destination, double latitude, double longitude, String emplacement, Etat etat);
 	
-	public Colis findColis(double id); 
+	public Colis findColis(double id);
+	
+	public List<Colis> findAllColis();
 }

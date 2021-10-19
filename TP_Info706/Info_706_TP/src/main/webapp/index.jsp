@@ -8,9 +8,14 @@
 </head>
 <body>
 
- 	<form method="get" action="MainServlet">
+ 	<form method="get" action="ShowAjoutServlet">
 		<button type="submit">Créer colis</button>
+	</form>
+	
+	 <form method="get" action="ShowSuiviServlet">
 		<button type="submit">Suivre colis</button>
 	</form>
+	
+
 </body>
 </html>

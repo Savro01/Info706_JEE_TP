@@ -1,9 +1,12 @@
 package colis.ejb;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import colis.jpa.Colis;
 import colis.jpa.Etat;
@@ -42,5 +45,10 @@ public class ColisEjb {
 		Colis c = em.find(Colis.class, id);
 		return c;
 	}
+	
+	public List<Colis> findAllColis() {
+        TypedQuery<Colis> rq = em.createQuery("SELECT m FROM Colis m ORDER BY m.id ASC", Colis.class);
+        return rq.getResultList();
+    }
 	
 }

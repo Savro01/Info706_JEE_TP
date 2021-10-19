@@ -17,8 +17,8 @@ import colis.jpa.Etat;
 /**
  * Servlet implementation class Main
  */
-@WebServlet("/MainServlet")
-public class MainServlet extends HttpServlet {
+@WebServlet("/ShowAjoutServlet")
+public class ShowAjoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@EJB
@@ -27,7 +27,7 @@ public class MainServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MainServlet() {
+    public ShowAjoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
