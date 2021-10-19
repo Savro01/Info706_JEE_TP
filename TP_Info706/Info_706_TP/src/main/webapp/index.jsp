@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form method="get" action="AddMesureServlet">
+<form method="get" action="AddColisServlet">
 	<p> Enregistrement d'un colis</p>
 	<p> Poids : <input name="temp"  type="text"> </p>
 	<p> Valeur : <input name="temp"  type="text"> </p>

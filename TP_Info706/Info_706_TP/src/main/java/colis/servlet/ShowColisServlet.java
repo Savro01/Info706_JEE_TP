@@ -13,21 +13,20 @@ import colis.ejb.ColisEjb;
 import colis.jpa.Colis;
 
 /**
- * Servlet implementation class AddColisServlet
+ * Servlet implementation class ShowColisServlet
  */
-@WebServlet("/AddColisServlet")
-
-public class AddColisServlet extends HttpServlet {
+@WebServlet("/ShowColisServlet")
+public class ShowColisServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+       
 	// injection de la reference de l'ejb
 	@EJB
 	private ColisEjb ejb;
-       
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddColisServlet() {
+    public ShowColisServlet() {
         super();
     }
 
@@ -36,12 +35,11 @@ public class AddColisServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// recuperation et parsing des parametres de la requete
-		//String piece = request.getParameter("piece");
-		//double temp = Double.parseDouble(request.getParameter("temp"));
-		// appel de la methode d'ajout sur l'ejb
-		//Colis m = ejb.addColis(piece, temp);		
-		// ajout de la Colis dans la requete
-		//request.setAttribute("Colis",m);
+		long id = Long.parseLong(request.getParameter("id"));
+		// appel de l'ejb
+		Colis c = ejb.findColis(id);		
+		// ajout du colis dans la requete
+		request.setAttribute("colis",c);
 		// transfert a la JSP d'affichage
 		request.getRequestDispatcher("/showColis.jsp").forward(request, response);
 	}
@@ -50,6 +48,7 @@ public class AddColisServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
