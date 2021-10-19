@@ -1,4 +1,4 @@
-package colis;
+package colis.jpa;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import colis.jpa.Etat;
 
 @Entity
 public class Colis implements Serializable {
@@ -33,11 +35,15 @@ public class Colis implements Serializable {
 	public Colis() {
 	}
 
-	public Colis(double poids, double valeur, String origine, String destination) {
+	public Colis(double poids, double valeur, String origine, String destination, double latitude, double longitude, String emplacement, Etat etat) {
 		this.poids = poids;
 		this.valeur = valeur;
 		this.origine = origine;
 		this.destination = destination;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.emplacement = emplacement;
+		this.etat = etat;
 	}
 
 	// GETTER ID

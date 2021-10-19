@@ -1,4 +1,4 @@
-package colis;
+package colis.jpa;
 
 public enum Etat {
 	ENREGISTREMENT,
