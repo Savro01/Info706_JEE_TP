@@ -8,13 +8,16 @@
 </head>
 <body>
 
-<form method="get" action="add">
+<form method="get" action="AddMesureServlet">
 	<p> Enregistrement d'un colis</p>
 	<p> Poids : <input name="temp"  type="text"> </p>
 	<p> Valeur : <input name="temp"  type="text"> </p>
 	<p> Origine : <input name="temp"  type="text"> </p>
 	<p> Destination : <input name="temp"  type="text"> </p>
 	<p> Emplacement de départ : <input name="temp"  type="text"> </p>
+	<p> Latitude : <input name="temp"  type="text"> </p>
+	<p> Longitude : <input name="temp"  type="text"> </p>
+	<p> Etat : <input name="temp"  type="text"> </p>
 	<p> <input type="submit" name="valider"  value="OK"> </p>
 		
 	  </form>

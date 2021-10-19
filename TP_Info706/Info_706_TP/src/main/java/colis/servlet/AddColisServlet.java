@@ -15,7 +15,7 @@ import colis.jpa.Colis;
 /**
  * Servlet implementation class AddMesureServlet
  */
-@WebServlet("/add")
+@WebServlet("/AddMesureServlet")
 
 public class AddColisServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -43,7 +43,7 @@ public class AddColisServlet extends HttpServlet {
 		// ajout de la mesure dans la requete
 		//request.setAttribute("mesure",m);
 		// transfert a la JSP d'affichage
-		request.getRequestDispatcher("/createColis.jsp").forward(request, response);
+		request.getRequestDispatcher("/showColis.jsp").forward(request, response);
 	}
 
 	/**
