@@ -19,6 +19,7 @@ public class ColisEjb {
 	 * Constructeur sans parametre obligatoire
 	 */
 	public ColisEjb() {
+		super();
 	}
 	
 	/**
