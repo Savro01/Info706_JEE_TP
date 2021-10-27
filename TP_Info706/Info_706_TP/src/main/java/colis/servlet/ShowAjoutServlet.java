@@ -17,7 +17,7 @@ import colis.jpa.Etat;
 /**
  * Servlet implementation class Main
  */
-@WebServlet("/ShowAjoutServlet")
+@WebServlet("/add")
 public class ShowAjoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

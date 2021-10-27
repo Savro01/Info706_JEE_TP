@@ -7,4 +7,9 @@ public enum Etat {
 	BLOQUE,
 	LIVRE;
 	
+	
+	public static Etat getEtatByString(String etat) {
+		return Etat.valueOf(etat);
+	}
+	
 }

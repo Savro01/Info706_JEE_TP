@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+#div_header{
+	background-color: white;
+	height: 50px;
+	line-height: 50px;
+	margin-bottom : 50px;
+	
+}
+	
+#header_home{
+	position: absolute;
+	top: 0;
+	left: 10%;
+	color: black;
+}
+
+
+#header_add{
+	position: absolute;
+	top: 0;
+	right: 20%;
+	font-weight: bold;
+	color: black;
+}
+
+#header_follow{
+	position: absolute;
+	top: 0;
+	right: 10%;
+	font-weight: bold;
+	color: black;
+}
+
+
+footer {
+	background-color: black;
+	position : fixed;
+	bottom : 0;
+	color: white;
+	height: 50px;
+	line-height: 50px;
+	width : 100%;
+	text-align: center;
+}

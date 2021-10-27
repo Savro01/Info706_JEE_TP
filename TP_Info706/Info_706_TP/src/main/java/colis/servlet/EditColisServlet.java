@@ -1,8 +1,8 @@
 package colis.servlet;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -17,53 +17,45 @@ import colis.jpa.Etat;
 import colis.jpa.HistoryColis;
 
 /**
- * Servlet implementation class ShowColisServlet
+ * Servlet implementation class EditColisServlet
  */
-@WebServlet("/show")
-public class ShowColisServlet extends HttpServlet {
+@WebServlet("/edit")
+public class EditColisServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	// injection de la reference de l'ejb
+	
+	
 	@EJB
 	private ColisEjb ejb;
-	
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowColisServlet() {
+    public EditColisServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// recuperation et parsing des parametres de la requete
-		long id = Long.parseLong(request.getParameter("id"));
-		// appel de l'ejb
-		Colis c = ejb.findColis(id);
 		
-		List<HistoryColis> history = ejb.findHistory(id);
-		// ajout du colis dans la requete
-		request.setAttribute("colis",c);
-		
-		request.setAttribute("history",history);
-		
-		
-		List<Etat> etats = Arrays.asList(Etat.values());
-		request.setAttribute("etats", etats);
-		
-		
-		// transfert a la JSP d'affichage
-		request.getRequestDispatcher("/editColis.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		long id = Long.parseLong(request.getParameter("id"));
+		double latitude = Double.parseDouble(request.getParameter("latitude"));
+		double longitude = Double.parseDouble(request.getParameter("longitude"));
+		String emplacement = request.getParameter("emplacement");
+		
+		String etatString = request.getParameter("etat");		
+		Etat etat = Etat.getEtatByString(etatString);
+
+		ejb.editColis(id, latitude,longitude,emplacement,etat);
+			
 	}
 
 }

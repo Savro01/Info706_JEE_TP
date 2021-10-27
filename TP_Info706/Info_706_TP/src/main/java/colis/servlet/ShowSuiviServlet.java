@@ -16,7 +16,7 @@ import colis.jpa.*;
 /**
  * Servlet implementation class ShowSuiviServlet
  */
-@WebServlet("/ShowSuiviServlet")
+@WebServlet("/follow")
 public class ShowSuiviServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -35,7 +35,17 @@ public class ShowSuiviServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Colis> listColis = ejb.findAllColis();
+		String sort = request.getParameter("sort");
+		List<Colis> listColis;
+		
+		if (sort == "etat") {
+			listColis = ejb.findAllColis(true);
+		}else {
+			listColis = ejb.findAllColis(false);
+		}
+		
+
+		
 		request.setAttribute("allColis", listColis);
 		request.getRequestDispatcher("/showColis.jsp").forward(request, response);
 	}
@@ -46,6 +56,12 @@ public class ShowSuiviServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	@Override
+	protected final void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		long id = Long.parseLong(req.getParameter("id"));
+		ejb.deleteColis(id);
 	}
 
 }

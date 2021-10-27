@@ -13,5 +13,8 @@
 			<attribute name="owner.project.facets" value="jpt.jpa;jst.web"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/adrienraffort/Downloads/Wildfly/modules/system/layers/base/javax/ejb/api/main/jboss-ejb-api_3.2_spec-2.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="/Users/adrienraffort/Downloads/Wildfly/modules/system/layers/base/javax/persistence/api/main/jakarta.persistence-api-2.2.3.jar"/>
+	<classpathentry kind="lib" path="/Users/adrienraffort/Downloads/javax.servlet-api-3.1.0.jar" sourcepath="/Users/adrienraffort/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
