@@ -52,6 +52,14 @@ public class ColisEjb {
 		return c;
 	}
 	
+	
+	
+	/**
+	 * Recuperation de la liste de tous les colis.
+	 * 
+	 * @param Boolean etat du colis
+	 * @return Liste de Colis
+	 */
 	public List<Colis> findAllColis(Boolean byState) {
 		if (byState) {
 	        TypedQuery<Colis> rq = em.createQuery("SELECT m FROM Colis m ORDER BY m.etat ASC", Colis.class);
@@ -61,12 +69,29 @@ public class ColisEjb {
 	        return rq.getResultList();
 		}
     }
-
+	
+	
+	/**
+	 * Récupère l'historique d'un colis par son identifiant.
+	 * 
+	 * @param long id du colis
+	 * @return Liste de l'historique d'un colis
+	 */
 	public List<HistoryColis> findHistory(long id) {
 		 TypedQuery<HistoryColis> rq = em.createQuery("SELECT h FROM HistoryColis h WHERE idColis="+ id +"ORDER BY h.id ASC", HistoryColis.class);
 	        return rq.getResultList();
 	}
-
+	
+	
+	
+	/**
+	 * Ajout une nouvelle ligne dans la table HistoryColis.
+	 * 
+	 * @param long id du colis
+	 * @param double latitude du nouvel emplacement
+	 * @param double longitude du nouvel emplacement
+	 * @param String Nom du nouvel emplacement
+	 */
 	public HistoryColis addHistoryColis(long id, double latitude, double longitude, String emplacement,
 			Etat etat) {
 		
@@ -79,7 +104,17 @@ public class ColisEjb {
 		em.persist(hc);
 		return hc;
 	}
-
+	
+	
+	/**
+	 * Modifie un colis et ajout de l'historique du colis.
+	 * 
+	 * @param long id du colis
+	 * @param double latitude du nouvel emplacement
+	 * @param double longitude du nouvel emplacement
+	 * @param String Nom du nouvel emplacement
+	 * @param Etat Nouvel état
+	 */
 	public void editColis(long id, double latitude, double longitude, String emplacement, Etat etat) {
 		
 		Colis colis= (Colis)em.find(Colis.class ,id);
@@ -95,6 +130,12 @@ public class ColisEjb {
 
 	}
 
+	
+	/**
+	 * Supprime un colis.
+	 * 
+	 * @param long id du colis
+	 */
 	public void deleteColis(long id) {
 		Colis colis= (Colis)em.find(Colis.class ,id);
 		

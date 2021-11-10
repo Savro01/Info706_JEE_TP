@@ -40,10 +40,11 @@ public class ShowColisServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// recuperation et parsing des parametres de la requete
 		long id = Long.parseLong(request.getParameter("id"));
-		// appel de l'ejb
+		// Appel de l'ejb
 		Colis c = ejb.findColis(id);
 		
 		List<HistoryColis> history = ejb.findHistory(id);
+		
 		// ajout du colis dans la requete
 		request.setAttribute("colis",c);
 		

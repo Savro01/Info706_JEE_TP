@@ -36,6 +36,8 @@ public class ShowAjoutServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// Récupère la liste des états
 		List<Etat> etats = Arrays.asList(Etat.values());
 		request.setAttribute("etats", etats);
 		request.getRequestDispatcher("/ajoutColis.jsp").forward(request, response);
